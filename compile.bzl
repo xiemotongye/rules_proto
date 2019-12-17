@@ -535,7 +535,7 @@ def proto_compile_impl(ctx):
     args += ["--proto_path=%s" % outdir]
 
     for dep in deps:
-        args += ["--proto_path=%s/_virtual_imports/%s" % (outdir, sub_dep.label.name) for sub_dep in dep.attr.deps]
+        args += ["--proto_path=%s/_virtual_imports/%s" % (outdir, sub_dep.label.name) for sub_dep in ctx.attr.deps]
 
     if ctx.attr.include_imports:
         args += ["--include_imports"]
